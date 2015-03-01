@@ -10,8 +10,10 @@ exports.config = {
     ],
 
     multiCapabilities: [{
-        browserName: "firefox"
-    }, {
+    // removing firefox from protractor until this is fixed:
+    // https://github.com/angular/protractor/issues/1734
+    //     browserName: "firefox"
+    // }, {
         browserName: "chrome"
     }],
 
