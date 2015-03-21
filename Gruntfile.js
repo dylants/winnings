@@ -20,14 +20,6 @@ module.exports = function(grunt) {
                 jshintrc: true
             }
         },
-        scsslint: {
-            allFiles: [
-                "public/modules/**/*.scss",
-            ],
-            options: {
-                config: ".scss-lint.yml"
-            }
-        },
         uglify: {
             production: {
                 options: {
@@ -204,7 +196,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask("watch-tasks", ["lint", "generate-css"]);
-    grunt.registerTask("lint", ["jshint", "scsslint"]);
+    grunt.registerTask("lint", ["jshint"]);
     grunt.registerTask("generate-css", ["sass", "postcss"]);
 
     grunt.registerTask("default", ["lint", "generate-css", "concurrent:dev"]);

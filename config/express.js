@@ -25,6 +25,7 @@ module.exports = function(db) {
     app.locals.jsFiles = config.getJavaScriptAssets();
     app.locals.cssFiles = config.getCSSAssets();
     app.locals.gitRevision = gitRev.long();
+    app.locals.appName = config.appName;
 
     // Passing the request url to environment locals
     app.use(function(req, res, next) {
@@ -78,8 +79,8 @@ module.exports = function(db) {
 
     // use express' session
     app.use(session({
-        name: "winnings",
-        secret: "winnings-super-secret-phrase"
+        name: config.appName,
+        secret: config.sessionSecret
     }));
 
     // use passport session

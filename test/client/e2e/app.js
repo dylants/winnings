@@ -1,6 +1,8 @@
 "use strict";
 
-describe("Winnings App", function() {
+var config = require("../../../config/config");
+
+describe("The application", function() {
     var ROOT_URL_PREFIX;
 
     // TODO should we keep these in a configuration file?
@@ -13,7 +15,7 @@ describe("Winnings App", function() {
 
     it("should display heading", function(done) {
         browser.getTitle().then(function(title) {
-            expect(title).toEqual("Winnings");
+            expect(title).toEqual(config.appName);
             done();
         });
     });

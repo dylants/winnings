@@ -1,14 +1,17 @@
 "use strict";
 
+var packageConfig = require("../../package.json");
+
 module.exports = {
+    appName: packageConfig.name,
     port: process.env.PORT || 3000,
     templateEngine: "swig",
-    sessionSecret: "winnings super secret phrase",
+    sessionSecret: packageConfig.name + " super secret phrase",
     mongo: {
         protocol: process.env.MONGO_PROTOCOL || "mongodb://",
         host: process.env.MONGO_HOST || "localhost",
         port: process.env.MONGO_PORT || 27017,
-        database: process.env.MONGO_DATABASE || "winnings"
+        database: process.env.MONGO_DATABASE || packageConfig.name
     },
     assets: {
         lib: {
